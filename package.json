@@ -4,14 +4,20 @@
 	"description": "gen-expreass",
 	"nodemonConfig": {
 		"exec": "npm run dev",
-    "watch": [ "./my-express-app"  ],
-		"ignore": [ "**/__tests__/**", "*.test.js", "*.spec.js" ]
+		"watch": [
+			"./my-express-app"
+		],
+		"ignore": [
+			"**/__tests__/**",
+			"*.test.js",
+			"*.spec.js"
+		]
 	},
 	"scripts": {
 		"start": "npm run prod",
 		"start2": "node ./my-express-app/bin/www",
 		"start3": "node ./dist/bin/www",
-		"transpile": "babel ./my-express-app --out-dir ./dist --ignore ./node_modules/**/*.js --copy-files --no-copy-ignored",
+		"transpile": "babel ./my-express-app --out-dir ./dist --ignore ./my-express-app/node_modules/**/*.js --copy-files",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "rimraf dist",
 		"build": "npm-run-all clean transpile",
@@ -38,6 +44,8 @@
 		"rimraf": "^3.0.2"
 	},
 	"babel": {
-		"presets": [ "@babel/preset-env" ]
+		"presets": [
+			"@babel/preset-env"
+		]
 	}
 }
