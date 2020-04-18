@@ -12,14 +12,14 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\bin\\www",
+            "program": "${workspaceFolder}\\dist\\bin\\www",
             "runtimeArgs" : ["--harmony"],
             "trace": true,
             "args":[
                 
               ],
               "env": { "VAULT_AUTH_TOKEN": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-                        "PORT": "4446"    
+                        "PORT": "3000"    
                         }
         }
     ]
