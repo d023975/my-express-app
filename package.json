@@ -21,7 +21,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "rimraf dist",
 		"build": "npm-run-all clean transpile",
-		"dev": "SET NODE_ENV=development & SET PORT=4446  & npm-run-all build start3",
+		"dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all build start3",
 		"prod": "SET NODE_ENV=production  & npm-run-all build start3",
 		"watch:dev": "nodemon -e js,pug"
 	},
