@@ -10,6 +10,20 @@ var checkRouter = require('./routes/check');
 
 var app = express();
 
+const env = (process.env.NODE_ENV = process.env.NODE_ENV || 'development');
+if (env === 'development') 
+            require('dotenv').config({ path: './my-express-app/config/local.env' });
+
+const vcapServices = JSON.parse(process.env['VCAP_SERVICES']); 
+
+
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = vcapServices.mongodb[0].credentials.uri;
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

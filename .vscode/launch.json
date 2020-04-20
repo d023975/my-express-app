@@ -12,14 +12,15 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\dist\\bin\\www",
+            "program": "${workspaceFolder}\\my-express-app\\bin\\www",
             "runtimeArgs" : ["--harmony"],
             "trace": true,
             "args":[
                 
               ],
               "env": { "VAULT_AUTH_TOKEN": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-                        "PORT": "3000"    
+                        "PORT": "3000"    ,
+                        "DEBUG" : "my-express-app:*"
                         }
         }
     ]
