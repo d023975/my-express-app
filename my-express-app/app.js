@@ -8,19 +8,16 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var checkRouter = require('./routes/check');
 
+var config = require('./config/localConf');
+
 var app = express();
 
 const env = (process.env.NODE_ENV = process.env.NODE_ENV || 'development');
-if (env === 'development') 
-            require('dotenv').config({ path: './my-express-app/config/local.env' });
-
-const vcapServices = JSON.parse(process.env['VCAP_SERVICES']); 
-
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = vcapServices.mongodb[0].credentials.uri;
-mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true });
+var mongoDB = config.vcap_services.mongodb[0].credentials.uri;
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

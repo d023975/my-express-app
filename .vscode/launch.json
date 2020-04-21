@@ -8,7 +8,7 @@
             "type": "node",
             "runtimeVersion": "12.13.1",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch my-express-app",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -22,6 +22,25 @@
                         "PORT": "3000"    ,
                         "DEBUG" : "my-express-app:*"
                         }
-        }
+        },
+        {
+            "type": "node",
+            "runtimeVersion": "12.13.1",
+            "request": "launch",
+            "name": "Launch Dist",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\dist\\bin\\www",
+            "runtimeArgs" : ["--harmony"],
+            "trace": true,
+            "args":[
+                
+              ],
+              "env": { "VAULT_AUTH_TOKEN": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                        "PORT": "3000"    ,
+                        "DEBUG" : "my-express-app:*"
+                        }
+        }         
     ]
 }
