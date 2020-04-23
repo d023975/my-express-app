@@ -18,8 +18,12 @@ $ npm install html-loader html-webpack-plugin --save-dev
 $ npm install pug-html-loader --save-dev
 $ npm install copy-webpack-plugin --save-dev
 
-
 ```
+
+### 2 B read in detail
+* https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334
+* https://alejandronapoles.com/simple-production-environment-with-webpack-and-express
+* https://alejandronapoles.com/webpack-middleware-and-hot-module-replacement/
 
 
 

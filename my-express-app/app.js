@@ -30,10 +30,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); //serve static files from here
+app.use(express.static( path.join(__dirname, 'public'))); //serve static files from here
 // app.use('/media' , express.static(path.join(__dirname, 'public'))); //serve static files from here with virtual prefix /media
 
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', checkRouter);
 
