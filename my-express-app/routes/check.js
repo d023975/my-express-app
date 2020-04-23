@@ -9,4 +9,4 @@ var checkController = require('../controllers/checkController');
 
 router.get('/ca?h*eck/:checkId', checkController.check_detail);
 
-module.exports = router;
+module.exports = router; 

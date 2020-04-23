@@ -12,7 +12,7 @@ var config = require('./config/localConf');
 
 var app = express();
 
-const env = (process.env.NODE_ENV = process.env.NODE_ENV || 'development');
+const env = process.env.NODE_ENV || 'development'; //changed  due to webpack error
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
@@ -22,6 +22,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
+app.engine('pug', require('pug').__express); //inserted due to webpack error
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 

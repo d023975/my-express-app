@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "gen-expreass",
 	"nodemonConfig": {
-		"exec": "npm run dev",
+		"exec": "npm run webpack-dev",
 		"watch": [
 			"./my-express-app"
 		],
@@ -11,19 +11,24 @@
 			"**/__tests__/**",
 			"*.test.js",
 			"*.spec.js"
-		]
+		],
+		"delay": "2500"
 	},
 	"scripts": {
 		"start": "npm run prod",
 		"start2": "node ./my-express-app/bin/www",
 		"start3": "node ./dist/bin/www",
+		"webpack-start" : "node ./dist/server.js",
 		"transpile": "babel ./my-express-app --out-dir ./dist --ignore ./my-express-app/node_modules/**/*.js --copy-files",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "rimraf dist",
 		"build": "npm-run-all clean transpile",
+		"webpack-build": "rm -rf dist && webpack --mode development",
 		"dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all build start3",
+		"webpack-dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build webpack-start",
 		"prod": "SET NODE_ENV=production  & npm-run-all build start3",
-		"watch:dev": "nodemon -e js,pug"
+		"watch:dev": "nodemon -e js,pug",
+		"webpack-watch:dev": "nodemon -e js,pug"
 	},
 	"repository": {
 		"type": "git",
@@ -39,9 +44,17 @@
 		"@babel/cli": "^7.8.4",
 		"@babel/core": "^7.9.0",
 		"@babel/preset-env": "^7.9.5",
+		"babel-loader": "^8.1.0",
+		"copy-webpack-plugin": "^5.1.1",
+		"html-loader": "^1.1.0",
+		"html-webpack-plugin": "^4.2.0",
 		"nodemon": "^2.0.3",
 		"npm-run-all": "^4.1.5",
-		"rimraf": "^3.0.2"
+		"pug-html-loader": "^1.1.5",
+		"rimraf": "^3.0.2",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-node-externals": "^1.7.2"
 	},
 	"babel": {
 		"presets": [
