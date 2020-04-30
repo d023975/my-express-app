@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "gen-expreass",
 	"nodemonConfig": {
-		"exec": "npm run webpack-dev",
+		"exec": "npm run webpack-prod",
 		"watch": [
 			"./my-express-app"
 		],
@@ -23,12 +23,14 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "rimraf dist",
 		"build": "npm-run-all clean transpile",
-		"webpack-build": "rm -rf dist && webpack --mode development",
+		"webpack-build-dev": "rm -rf dist && webpack --mode development --config webpack.dev.config.js",
+		"webpack-build-prod": "rm -rf dist && webpack --mode production  --config webpack.prod.config.js",
 		"dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all build start-dist",
-		"webpack-dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build webpack-start",
+		"webpack-dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build-dev webpack-start",
+		"webpack-prod": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build-prod webpack-start",
 		"prod": "SET NODE_ENV=production  & npm-run-all build start-dist",
 		"watch:dev": "nodemon -e js,pug",
-		"webpack-watch:dev": "nodemon -e js,pug"
+		"webpack-watch": "nodemon -e js,pug"
 	},
 	"repository": {
 		"type": "git",
