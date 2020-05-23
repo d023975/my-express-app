@@ -27,7 +27,7 @@
 		"webpack-build-prod": "rm -rf dist && webpack --mode production  --config webpack.prod.config.js",
 		"dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all build start-dist",
 		"webpack-dev": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build-dev webpack-start",
-		"webpack-prod": "SET NODE_ENV=development & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build-prod webpack-start",
+		"webpack-prod": "SET NODE_ENV=production & SET PORT=4446 & SET DEBUG=my-express-app:*  & npm-run-all webpack-build-prod webpack-start",
 		"prod": "SET NODE_ENV=production  & npm-run-all build start-dist",
 		"watch:dev": "nodemon -e js,pug",
 		"webpack-watch": "nodemon -e js,pug"
